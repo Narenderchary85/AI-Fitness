@@ -59,7 +59,7 @@ export const useTTS = () => {
     const speak = async (text) => {
       try {
         setLoadingTTS(true);
-        const res = await fetch("http://192.168.31.125:5000/plan/tts", {
+        const res = await fetch("https://ai-fitness-b.onrender.com/plan/tts", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ text }),

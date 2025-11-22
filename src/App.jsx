@@ -30,7 +30,7 @@ export default function App() {
     setLoading(true);
     try {
       // Simulate API call - replace with your actual endpoint
-      const res = await fetch("http://192.168.31.125:5000/plan/generate", {
+      const res = await fetch("https://ai-fitness-b.onrender.com/plan/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user_details: userDetails }),
