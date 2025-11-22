@@ -128,8 +128,7 @@ const PlanResults = ({ plan, onRestart }) => {
   return (
     <div className="min-h-screen py-8 px-4 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
       <div className="max-w-7xl mx-auto">
-        
-        {/* HEADER */}
+
         <motion.div
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -186,7 +185,6 @@ const PlanResults = ({ plan, onRestart }) => {
         )}
       </AnimatePresence>
 
-      {/* Loading Indicator */}
       <AnimatePresence>
         {loadingTTS && (
           <motion.div
@@ -215,8 +213,7 @@ const PlanResults = ({ plan, onRestart }) => {
           animate="visible"
           className="space-y-8"
         >
-          
-          {/* DIET PLAN - TOP SECTION */}
+
           <motion.div
             variants={itemVariants}
             className="bg-white rounded-3xl shadow-2xl border border-teal-100 overflow-hidden"
@@ -271,7 +268,6 @@ const PlanResults = ({ plan, onRestart }) => {
             </div>
           </motion.div>
 
-          {/* WORKOUT PLAN - FULL WIDTH */}
           <motion.div
             variants={itemVariants}
             className="bg-white rounded-3xl shadow-2xl border border-emerald-100 overflow-hidden"
@@ -304,7 +300,7 @@ const PlanResults = ({ plan, onRestart }) => {
                     transition={{ delay: dayIndex * 0.1 }}
                     className="bg-gray-50 rounded-2xl p-6 border border-emerald-200 hover:border-emerald-300 transition-all duration-300"
                   >
-                    {/* Day Header */}
+
                     <div className="flex items-center justify-between mb-6">
                       <div className="flex items-center">
                         <div className="bg-emerald-500 p-3 rounded-xl mr-4">
@@ -325,7 +321,6 @@ const PlanResults = ({ plan, onRestart }) => {
                       </div>
                     </div>
 
-                    {/* Exercises Grid */}
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                       {day.exercises?.map((exercise, exIndex) => (
                         <motion.div
@@ -344,11 +339,9 @@ const PlanResults = ({ plan, onRestart }) => {
                             </div>
                           </div>
 
-                          {/* Exercise Details */}
                           <div className="space-y-2">
                             <div className="flex items-center justify-between text-xs">
                               <div className="flex items-center text-gray-600">
-                                {/* <FaRepea className="mr-1 text-emerald-500" /> */}
                                 <span>Sets</span>
                               </div>
                               <span className="font-bold text-gray-800">{exercise.sets}</span>
@@ -395,7 +388,6 @@ const PlanResults = ({ plan, onRestart }) => {
             </div>
           </motion.div>
 
-          {/* RECOMMENDATIONS */}
           <motion.div
             variants={itemVariants}
             className="bg-white rounded-3xl shadow-2xl border border-amber-100 overflow-hidden"
@@ -431,7 +423,6 @@ const PlanResults = ({ plan, onRestart }) => {
           </motion.div>
         </motion.div>
 
-        {/* ACTION BUTTONS */}
         <motion.div
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -459,7 +450,6 @@ const PlanResults = ({ plan, onRestart }) => {
           </motion.button>
         </motion.div>
 
-        {/* SUCCESS MESSAGE */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

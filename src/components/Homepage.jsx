@@ -41,7 +41,6 @@ const Homepage=({ onStart })=> {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Hero Section */}
       <section className="flex-1 flex items-center justify-center px-6 py-20">
         <motion.div
           variants={containerVariants}
@@ -85,7 +84,6 @@ const Homepage=({ onStart })=> {
         </motion.div>
       </section>
 
-      {/* Features Section */}
       <section className="bg-white/80 backdrop-blur-sm py-16 px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -125,7 +123,6 @@ const Homepage=({ onStart })=> {
         </motion.div>
       </section>
 
-      {/* CTA Section */}
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

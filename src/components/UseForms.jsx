@@ -64,11 +64,10 @@ const UserForms = ({ userDetails, handleChange, generatePlan, loading }) => {
       label: "Workout Location",
       icon: <FaMapMarkerAlt className="text-emerald-500" />,
       type: "select",
-      options: ["Gym", "Home", "Park", "Hospital"]
+      options: ["Gym", "Home", "Others"]
     },
   ];
 
-  // Ensure all fields have a value (empty string if undefined)
   const getFieldValue = (fieldName) => {
     return userDetails[fieldName] || "";
   };
@@ -85,7 +84,7 @@ const UserForms = ({ userDetails, handleChange, generatePlan, loading }) => {
         className="w-full max-w-2xl"
       >
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-emerald-100">
-          {/* Header */}
+
           <div className="bg-gradient-to-r from-emerald-500 to-teal-600 p-8 text-center">
             <motion.h2
               initial={{ y: -20, opacity: 0 }}
@@ -104,7 +103,6 @@ const UserForms = ({ userDetails, handleChange, generatePlan, loading }) => {
             </motion.p>
           </div>
 
-          {/* Form */}
           <div className="p-8">
             <div className="grid md:grid-cols-2 gap-6">
               {formFields.map((field, index) => (
