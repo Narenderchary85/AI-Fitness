@@ -56,7 +56,7 @@
 
 1. **Clone the Frontend Repository:**
      ```bash
-      git clone https://github.com/Narenderchary85/AI-Fitness-B
+      git clone https://github.com/Narenderchary85/AI-Fitness
 
 2. **Install Dependencies:**
      ```bash
