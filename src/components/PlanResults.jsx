@@ -10,6 +10,7 @@ import {
   FaClock,
   FaRunning
 } from "react-icons/fa";
+
 import { useSimplePdfExport, useTTS } from "../hooks/usePdfExport";
 import { useState } from "react";
 import ReactDOM from "react-dom/client";
@@ -30,7 +31,7 @@ const PlanResults = ({ plan, onRestart }) => {
     { time: "Lunch", meal: dietPlan.lunch, icon: "🌞" },
     { time: "Dinner", meal: dietPlan.dinner, icon: "🌙" },
     { time: "Snacks", meal: dietPlan.snacks, icon: "🍎" }
-  ].filter(meal => meal.meal); // Filter out empty meals
+  ].filter(meal => meal.meal); 
 
   const recommendations = [
     "Stay hydrated - drink 3L water daily",

@@ -19,7 +19,6 @@ const Homepage=({ onStart })=> {
       description: "Monitor your fitness journey with detailed analytics"
     }
   ];
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
