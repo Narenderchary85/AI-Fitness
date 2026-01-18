@@ -154,14 +154,14 @@ const UserForms = ({ userDetails, handleChange, generatePlan, loading }) => {
               disabled={!isFormValid() || loading}
               className={`w-full mt-8 p-4 rounded-xl font-semibold text-lg transition-all duration-300 ${
                 isFormValid() 
-                  ? "bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg cursor-pointer" 
+                  ? "bg-gradient-to-r from-emerald-500   to-teal-600 text-white shadow-lg cursor-pointer" 
                   : "bg-gray-300 text-gray-500 cursor-not-allowed"
               }`}
             >
               {loading ? (
                 <div className="flex items-center justify-center">
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-3"></div>
-                  Generating Your Plan...
+                  Generating Your Plan...  
                 </div>
               ) : (
                 "Generate My Fitness Plan"

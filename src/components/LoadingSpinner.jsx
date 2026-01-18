@@ -38,7 +38,6 @@ const LoadingSpinner = () => {
           transition={{ duration: 2, repeat: Infinity }}
           className="h-2 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full mx-auto mb-2"
         />
-        
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

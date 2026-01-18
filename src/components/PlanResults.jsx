@@ -404,7 +404,6 @@ const PlanResults = ({ plan, onRestart }) => {
                 </div>
               </div>
             </div>
-
             <div className="p-6">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {recommendations.map((rec, index) => (
@@ -423,7 +422,6 @@ const PlanResults = ({ plan, onRestart }) => {
             </div>
           </motion.div>
         </motion.div>
-
         <motion.div
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
