@@ -1,80 +1,77 @@
 import { motion } from "framer-motion";
+import { useMemo } from "react";
 import { FaUser, FaWeight, FaRulerVertical, FaBullseye, FaVenusMars, FaFire, FaUtensilSpoon, FaMapMarkerAlt } from "react-icons/fa";
 
+const FORM_FIELDS = [
+  {
+    name: "name",
+    label: "Name",
+    icon: <FaUser className="text-emerald-500" />,
+    type: "text",
+    placeholder: "Enter your Name"
+  },
+  {
+    name: "age",
+    label: "Age",
+    icon: <FaUser className="text-emerald-500" />,
+    type: "number",
+    placeholder: "Enter your age"
+  },
+  {
+    name: "weight",
+    label: "Weight (kg)",
+    icon: <FaWeight className="text-emerald-500" />,
+    type: "number",
+    placeholder: "Enter your weight"
+  },
+  {
+    name: "height",
+    label: "Height (cm)",
+    icon: <FaRulerVertical className="text-emerald-500" />,
+    type: "number",
+    placeholder: "Enter your height"
+  },
+  {
+    name: "gender",
+    label: "Gender",
+    icon: <FaVenusMars className="text-emerald-500" />,
+    type: "select",
+    options: ["Male", "Female", "Other"]
+  },
+  {
+    name: "goal",
+    label: "Fitness Goal",
+    icon: <FaBullseye className="text-emerald-500" />,
+    type: "select",
+    options: ["Weight Loss", "Muscle Gain", "Maintenance", "Endurance", "General Fitness"]
+  },
+  {
+    name: "fitness_level",
+    label: "Activity Level",
+    icon: <FaFire className="text-emerald-500" />,
+    type: "select",
+    options: ["Sedentary", "Lightly Active", "Moderately Active", "Very Active", "Extremely Active"]
+  },
+  {
+    name: "diet",
+    label: "Dietary Preferences",
+    icon: <FaUtensilSpoon className="text-emerald-500" />,
+    type: "select",
+    options: ["Vegetarian", "Vegan", "Keto", "Paleo", "Mediterranean", "No Restrictions"]
+  },
+  {
+    name: "location",
+    label: "Workout Location",
+    icon: <FaMapMarkerAlt className="text-emerald-500" />,
+    type: "select",
+    options: ["Gym", "Home", "Others"]
+  },
+];
 const UserForms = ({ userDetails, handleChange, generatePlan, loading }) => {
-  const formFields = [
-    {
-      name: "name",
-      label: "Name",
-      icon: <FaUser className="text-emerald-500" />,
-      type: "text",
-      placeholder: "Enter your Name"
-    },
-    {
-      name: "age",
-      label: "Age",
-      icon: <FaUser className="text-emerald-500" />,
-      type: "number",
-      placeholder: "Enter your age"
-    },
-    {
-      name: "weight",
-      label: "Weight (kg)",
-      icon: <FaWeight className="text-emerald-500" />,
-      type: "number",
-      placeholder: "Enter your weight"
-    },
-    {
-      name: "height",
-      label: "Height (cm)",
-      icon: <FaRulerVertical className="text-emerald-500" />,
-      type: "number",
-      placeholder: "Enter your height"
-    },
-    {
-      name: "gender",
-      label: "Gender",
-      icon: <FaVenusMars className="text-emerald-500" />,
-      type: "select",
-      options: ["Male", "Female", "Other"]
-    },
-    {
-      name: "goal",
-      label: "Fitness Goal",
-      icon: <FaBullseye className="text-emerald-500" />,
-      type: "select",
-      options: ["Weight Loss", "Muscle Gain", "Maintenance", "Endurance", "General Fitness"]
-    },
-    {
-      name: "fitness_level",
-      label: "Activity Level",
-      icon: <FaFire className="text-emerald-500" />,
-      type: "select",
-      options: ["Sedentary", "Lightly Active", "Moderately Active", "Very Active", "Extremely Active"]
-    },
-    {
-      name: "diet",
-      label: "Dietary Preferences",
-      icon: <FaUtensilSpoon className="text-emerald-500" />,
-      type: "select",
-      options: ["Vegetarian", "Vegan", "Keto", "Paleo", "Mediterranean", "No Restrictions"]
-    },
-    {
-      name: "location",
-      label: "Workout Location",
-      icon: <FaMapMarkerAlt className="text-emerald-500" />,
-      type: "select",
-      options: ["Gym", "Home", "Others"]
-    },
-  ];
 
-  const getFieldValue = (fieldName) => {
-    return userDetails[fieldName] || "";
-  };
-
-  const isFormValid = () => {
+  const isFormValid = useMemo(() => {
     return Object.values(userDetails).every(value => value !== "" && value !== undefined);
-  };
+  },[userDetails]);
 
   return (
     <div className="min-h-screen flex items-center justify-center p-6 py-12">
@@ -105,7 +102,7 @@ const UserForms = ({ userDetails, handleChange, generatePlan, loading }) => {
 
           <div className="p-8">
             <div className="grid md:grid-cols-2 gap-6">
-              {formFields.map((field, index) => (
+              {FORM_FIELDS.map((field, index) => (
                 <motion.div
                   key={field.name}
                   initial={{ x: index % 2 === 0 ? -20 : 20, opacity: 0 }}
@@ -121,7 +118,7 @@ const UserForms = ({ userDetails, handleChange, generatePlan, loading }) => {
                   {field.type === "select" ? (
                     <select
                       name={field.name}
-                      value={getFieldValue(field.name)}
+                      value={userDetails[field.name]?? ""}
                       onChange={handleChange}
                       className="w-full p-3 border-2 border-emerald-100 rounded-xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 transition-all duration-300 bg-white"
                     >
@@ -134,7 +131,7 @@ const UserForms = ({ userDetails, handleChange, generatePlan, loading }) => {
                     <input
                       type={field.type}
                       name={field.name}
-                      value={getFieldValue(field.name)}
+                      value={userDetails[field.name]??""}
                       onChange={handleChange}
                       placeholder={field.placeholder}
                       className="w-full p-3 border-2 border-emerald-100 rounded-xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 transition-all duration-300"
@@ -146,14 +143,14 @@ const UserForms = ({ userDetails, handleChange, generatePlan, loading }) => {
 
             <motion.button
               whileHover={{ 
-                scale: isFormValid() ? 1.02 : 1,
-                boxShadow: isFormValid() ? "0 10px 30px rgba(5, 150, 105, 0.4)" : "none"
+                scale: isFormValid ? 1.02 : 1,
+                boxShadow: isFormValid ? "0 10px 30px rgba(5, 150, 105, 0.4)" : "none"
               }}
-              whileTap={{ scale: isFormValid() ? 0.98 : 1 }}
+              whileTap={{ scale: isFormValid ? 0.98 : 1 }}
               onClick={generatePlan}
-              disabled={!isFormValid() || loading}
+              disabled={!isFormValid || loading}
               className={`w-full mt-8 p-4 rounded-xl font-semibold text-lg transition-all duration-300 ${
-                isFormValid() 
+                isFormValid
                   ? "bg-gradient-to-r from-emerald-500   to-teal-600 text-white shadow-lg cursor-pointer" 
                   : "bg-gray-300 text-gray-500 cursor-not-allowed"
               }`}
