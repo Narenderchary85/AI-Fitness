@@ -53,46 +53,5 @@ export const useSimplePdfExport = () => {
   return { exportToPdf };
 };
 
-export const useTTS = () => {
-    const [loadingTTS, setLoadingTTS] = useState(false);
-  const audioRef = useRef(null);
-    const speak = async (text) => {
-      try {
-        setLoadingTTS(true);
-        const res = await fetch("https://ai-fitness-b.onrender.com/plan/tts", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ text }),
-        });
-  
-        const data = await res.json();
-  
-        if (!data.success) {
-          console.error("TTS failed:", data.message);
-          return;
-        }
-  
-        // Convert base64 to audio
-        const audioBase64 = data.audio_base64;
-        const audioSrc = `data:audio/wav;base64,${audioBase64}`;
-  
-        const audio = new Audio(audioSrc);
-        audio.play();
-  
-      } catch (err) {
-        console.error("TTS Error:", err);
-      } finally{
-        setLoadingTTS(false);
-      }
-    };
 
-    const stop = () => {
-        if (audioRef.current) {
-          audioRef.current.pause();
-          audioRef.current.currentTime = 0;
-        }
-      };
-  
-    return { speak , stop , loadingTTS};
-  };
   
