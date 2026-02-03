@@ -66,7 +66,6 @@ const Homepage=({ onStart })=> {
               nutrition plans powered by artificial intelligence.
             </p>
           </motion.div>
-
           <motion.div variants={itemVariants}>
             <motion.button
               whileHover={{ 
@@ -121,7 +120,6 @@ const Homepage=({ onStart })=> {
           </div>
         </motion.div>
       </section>
-
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

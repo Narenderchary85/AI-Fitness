@@ -31,7 +31,6 @@ const LoadingSpinner = () => {
         >
           Crafting Your Perfect Plan
         </motion.h3>
-        
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: "200px" }}
@@ -50,7 +49,6 @@ const LoadingSpinner = () => {
       </div>
     </motion.div>
   );
-  
 }
 
 export default LoadingSpinner;

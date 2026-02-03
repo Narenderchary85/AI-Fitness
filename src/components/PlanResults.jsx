@@ -55,7 +55,6 @@ const PlanResults = ({ plan, onRestart }) => {
     visible: { y: 0, opacity: 1 }
   };
 
-
   const getExerciseIcon = (exerciseName) => {
     const name = exerciseName?.toLowerCase() || '';
     if (name.includes('push') || name.includes('chest') || name.includes('press')) return '💪';
@@ -123,7 +122,6 @@ const PlanResults = ({ plan, onRestart }) => {
   
     return text;
   };
-  
   
 
   return (
